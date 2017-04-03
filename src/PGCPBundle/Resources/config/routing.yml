@@ -1,0 +1,3 @@
+pgcp_homepage:
+    path:     /
+    defaults: { _controller: PGCPBundle:Home:index }

@@ -1,0 +1,191 @@
+{% extends("SRSCProjetBundle::layout.html.twig") %}
+
+{% block content %}
+    <!-- page content -->
+    <div class="right_col" >
+        <div class="">
+            <br><br><br>
+            {% for flash_message in app.session.flashBag.get('warning') %}
+                <div class="alert alert-warning">
+                    {{ flash_message }}
+                </div>
+            {% endfor %}
+            {% for flash_message in app.session.flashBag.get('notice') %}
+                <div class="alert alert-success">
+                    {{ flash_message }}
+                </div>
+            {% endfor %}
+            {% for flash_message in app.session.flashBag.get('erreur') %}
+                <div class="alert alert-danger">
+                    {{ flash_message }}
+                </div>
+            {% endfor %}
+            <div class="row">
+                <div class="col-lg-12">
+                    <ol class="breadcrumb">
+                        <li>
+                            <i class="fa fa-dashboard"></i> <a href="{{ path('srsc_projet_homepage') }}">Accueil</a>
+                        </li>
+                        <li class="active">
+                            <i class="fa fa-table"></i> Liste des Utilisateurs
+                        </li>
+                        <li>
+                            <a href="{{ path('srsc_utilisateur_ajout_admin') }}">
+                                <button type="button" class="btn btn-primary btn-sm">Ajouter Administrateur</button>
+                            </a>
+                        </li>
+                        <li>
+                            <button disabled="disabled" type="button" class="btn btn-danger btn-sm">Supprimer Tout</button>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="container-fluid">
+                <div class="container">
+                    <div class=" navigation">
+                        {{ knp_pagination_render(pagination) }}
+                    </div>
+                    <div class="row">
+                        {% for util in pagination %}
+                            <div class="col-sm-6">
+                                <div class="panel panel-info">
+                                    <!-- Default panel contents -->
+                                    <div class="panel-heading">
+                                        <strong>{{ util.nom }} </strong>{{ util.prenom }}
+                                        {% if util.role=="responsable" %}
+                                        <span class="pull-right">
+                                        <button onclick="window.location.href='{{ path('srsc_utilisateur_details',{ 'id': util.id })}}'" type="button" class=" btn btn-default btn-xs ">
+                                            <i class="fa fa-info-circle"> </i> Détails
+                                        </button>
+                                            </span>
+                                            {% endif %}
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="col-lg-12">
+                                            <div class="col-sm-3">
+                                                {% if util.sexe=='M' %}
+                                                    <img width="80%" src="{{ asset("images/user_mas.png") }}"
+                                                         alt="{{ util.prenom }}">
+                                                {% elseif util.sexe=='F' %}
+                                                    <img width="80%" src="{{ asset("images/user_fem.png") }}"
+                                                         alt="{{ util.prenom }}">
+                                                {% endif %}
+                                            </div>
+                                            <div class="col-sm-7">
+                                                <div class="col-lg-24">
+                                                    <table class="table table-user-information">
+                                                        <tbody>
+                                                        <tr>
+                                                            <td><b>email</b></td>
+                                                            <td><i>{{ util.email }}</i></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><b>Télephone</b></td>
+                                                            <td><i>{{ util.telephone }}</i></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><b>Fonction</b></td>
+                                                            <td><i>{{ util.fonction }}</i></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td><b>Statut</b></td>
+                                                            <td><i>{{ util.role }}</i></td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="panel-footer">
+                                        <a href="#" type="button"  class="btn btn-sm btn-primary"><i
+                                                    class="glyphicon glyphicon-envelope"></i></a>
+                                        <span class="pull-right">
+                            <a href="{{ path('srsc_utilisateur_modifier',{'id':util.id, 'role':util.role}) }}"
+                               data-original-title="Edit this user" data-toggle="tooltip" type="button"
+                               class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i>
+                            </a>
+                            <a type="button"
+                               class="btn btn-sm btn-danger" data-toggle="modal" data-target="#{{ util.id }}">
+                                <i class="glyphicon glyphicon-remove"></i>
+                            </a>
+
+
+                                                <!-- Modal -->
+                                                <div class="modal fade fixed" id="{{ util.id }}" tabindex="-1"
+                                                     role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header well">
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                        aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                                <span>
+                                                                    <h4 class="modal-title" id="myModalLabel">
+                                                                        <p align="center" style="display: inline-block; color: #90111A"><i>Suppression de l'utilisateur {{ util.nom }}</i></p>
+                                                                    </h4>
+                                                                </span>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                {{ render(controller('SRSCProjetBundle:Utilisateur:supprimer',{ 'confirmer':'no',
+                                                                    'id':util.id})) }}
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- /page content -->
+{% endblock %}
+
+{% for util in pagination %}
+                                <div class="col-md-4 col-sm-4 col-xs-12 profile_details">
+                                    <div class="well profile_view">
+                                        <div class="col-sm-12">
+                                            <h4 class="brief"><i>{{ util.nom | upper }} {{ util.prenom }}</i></h4>
+                                            <div class="left col-xs-9">
+                                                <ul class="list-unstyled">
+                                                    <li><i class="fa fa-mail-reply"></i> Fonction: {{ util.fonction }}</li>
+                                                    <li><i class="fa fa-phone"></i> Téléphone : {{ util.telephone }} </li>
+                                                    <li><i class="fa fa-phone"></i> Email : {{ util.email }}</li>
+                                                    <li><i class="fa fa-phone"></i> Statut : {{ util.role }}</li>
+                                                </ul>
+                                            </div>
+                                            <div class="right col-xs-3 text-center">
+                                                {% if util.sexe=='M' %}
+                                                    <img width="80%" src="{{ asset("images/user_mas.png") }}"
+                                                         alt="{{ util.prenom }}">
+                                                {% elseif util.sexe=='F' %}
+                                                    <img width="80%" src="{{ asset("images/user_fem.png") }}"
+                                                         alt="{{ util.prenom }}">
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        <div class="col-xs-12 bottom text-center">
+                                            <div class="col-xs-12 col-sm-6 emphasis">
+
+                                            </div>
+                                            <div class="col-xs-12 col-sm-6 emphasis">
+                                                <button type="button" class="btn btn-success btn-xs"> <i class="fa fa-user">
+                                                    </i> <i class="fa fa-comments-o"></i> </button>
+                                                {% if util.role=="responsable" %}
+                                                <button type="button" class="btn btn-primary btn-xs">
+                                                    <i class="fa fa-user"> </i> Détails
+                                                </button>
+                                                    {% endif %}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                {% endfor %}

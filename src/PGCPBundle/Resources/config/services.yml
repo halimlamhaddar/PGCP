@@ -1,0 +1,4 @@
+services:
+#    pgcp.example:
+#        class: PGCPBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

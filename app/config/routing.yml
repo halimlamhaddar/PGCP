@@ -1,0 +1,5 @@
+pgcp:
+    resource: "@PGCPBundle/Resources/config/routing.yml"
+    prefix:   /
+
+

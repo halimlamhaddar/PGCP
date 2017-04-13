@@ -21,7 +21,17 @@
                                         <a href="#" class="list-group-item">Probabilité et simulation</a>
                                         <a href="#" class="list-group-item">Circuit logique et éléctronique numérique</a>
                                         <a href="#" class="list-group-item">Techniques d'expression</a>
-                                        <a href="#" class="list-group-item">Archtecture des ordinateurs</a>
+                                        <a href="{{ path('pgcp_admin') }}" class="list-group-item">go to admin</a>
+                                        {% if is_granted('ROLE_PROFESSEUR') %}
+                                            <a href="#" class="list-group-item">Je suis professeur</a>
+                                        {% endif %}
+                                        {% if is_granted('ROLE_ETUDIANT') %}
+                                            <a href="#" class="list-group-item">Je suis etudiant</a>
+                                        {% endif %}
+                                        {% if is_granted('ROLE_ADMIN') %}
+                                            <a href="#" class="list-group-item">Je suis admin</a>
+                                        {% endif %}
+
                                     </div>
                                 </div>
                             </div>

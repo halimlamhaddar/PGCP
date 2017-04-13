@@ -1,3 +1,14 @@
+pgcp_default:
+    path:     /
+    defaults: { _controller: PGCPBundle:Home:index }
+
+
 pgcp_homepage:
     path:     /home
     defaults: { _controller: PGCPBundle:Home:index }
+
+
+pgcp_admin:
+    path:     /admin
+    defaults: { _controller: PGCPBundle:Home:admin }
+

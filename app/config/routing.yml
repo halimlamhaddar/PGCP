@@ -6,7 +6,7 @@ pgcp:
 login:
     path: /login
     defaults:
-        _controller: OCUserBundle:Security:login
+        _controller: UserBundle:Security:login
 
 login_check:
     path: /login_check

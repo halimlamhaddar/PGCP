@@ -31,14 +31,11 @@
                             <div class="nav toggle">
                                 <a id="menu_toggle"><i class="fa fa-bars"></i></a>
                             </div>
-                            <div class="nav navbar-nav navbar-text">
-                                <strong>P</strong>lateforme de <strong>G</strong>estion des <strong>C</strong>ours et des <strong>P</strong>rojets
-                            </div>
                             {% if app.user is empty %}
                                 <ul class="nav navbar-nav navbar-right">
                                     <li class="">
-                                        <a class="user-profile" >
-                                            <img src="{{ asset("images/anonyme.jpg") }}" alt="">Anonymous
+                                        <a href="{{ path('fos_user_security_login') }}" class="user-profile" >
+                                            <img src="{{ asset("images/anonyme.jpg") }}" alt="">Connexion
                                             <span class=" fa fa-an"></span>
                                         </a>
                                     </li>
@@ -47,15 +44,15 @@
                             <ul class="nav navbar-nav navbar-right">
                                 <li class="">
                                     <a href="javascript:;" class="user-profile dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-                                        <img src="{{ asset("images/img.jpg") }}" alt="">{{ app.user.username }}
-                                        <span class=" fa fa-angle-right"></span>
+                                        <img src="{{ asset("images/img.jpg") }}" alt="">Connecté en tant que <strong>{{ app.user.username | upper }}</strong>
+                                        <span class=" fa fa-angle-down"></span>
                                     </a>
                                     <ul class="dropdown-menu dropdown-usermenu pull-right">
                                         <li><a href="javascript:;"><i class="fa fa-user"></i> Profile</a></li>
                                         <li><a href="javascript:;"><i class="fa fa-tasks"></i> Tâches</a></li>
                                         <li><a href="javascript:;"><i class="fa fa-cogs"></i> Configuration</a></li>
                                         <li><a href="javascript:;"><i class="fa fa-question"></i> Help</a></li>
-                                        <li><a href="{{ path('logout') }}"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
+                                        <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                                     </ul>
                                 </li>
 
@@ -136,7 +133,7 @@
                 <!-- footer content -->
                 <footer>
                     <div class="pull-right">
-                        Gentelella - Bootstrap Admin Template by <a href="https://colorlib.com">Colorlib</a>
+                        Ensias - Plateforme de gestion réalisée par <em>SSI</em>
                     </div>
                     <div class="clearfix"></div>
                 </footer>

@@ -8,7 +8,21 @@ pgcp_homepage:
     defaults: { _controller: PGCPBundle:Home:index }
 
 
+
+#Administration-----------------------------------------
 pgcp_admin:
     path:     /admin
-    defaults: { _controller: PGCPBundle:Home:admin }
+    defaults: { _controller: PGCPBundle:Admin:index }
 
+
+
+pgcp_admin_etudiant:
+    path:     /admin/etudiant/{username}
+    defaults: { _controller: PGCPBundle:Admin:etudiant }
+pgcp_admin_professeur:
+    path:     /admin/professeur/{username}
+    defaults: { _controller: PGCPBundle:Admin:professeur }
+pgcp_admin_admin:
+    path:     /admin/admin/{username}
+    defaults: { _controller: PGCPBundle:Admin:admin }
+#------------------------------------------------------

@@ -1,1 +1,64 @@
-i have access here .. i'm the admin
+{% extends('@User/layout.html.twig') %}
+{% block soustitre %}{{ parent() }} | Page d'administration{% endblock %}
+{% block fos_user_content %}
+    {% if not role =='' %}
+        <div class="alert alert-success">
+            <strong>Rôle {{ role }}</strong> definit avec succès pour <strong>{{ nom | upper }}</strong>.
+        </div>
+    {% endif %}
+    <table width="100%" class="table table-striped table-bordered mytable" id="example" cellspacing="0">
+
+        <thead>
+        <tr>
+            <th>Nom d'utilisateur</th>
+            <th>Email</th>
+            <th>Rôle</th>
+            <th>Attribuer un rôle</th>
+        </tr>
+        </thead>
+
+        <tfoot>
+
+        <tr>
+
+            <th>Nom d'utilisateur</th>
+            <th>Email</th>
+            <th>Rôle</th>
+            <th>Attribuer un rôle</th>
+        </tr>
+
+        </tfoot>
+
+        <tbody>
+        {% for oneuser in  users %}
+                <tr>
+                    <td scope="row">{{ oneuser.username}}</td>
+                    <td>{{ oneuser.email }}</td>
+                    <td>{{ oneuser.roles[0] }}</td>
+                    <td width="15%">
+                        <a href="{{ path('pgcp_admin_etudiant',{'username':oneuser.username}) }}" title="Attribuer le rôle Etudiant">
+                                <span class="glyphicon glyphicon-user" aria-hidden="true">
+                                </span>
+                        </a>
+                        &nbsp;&nbsp;&nbsp;
+                        <a href="{{ path('pgcp_admin_professeur',{'username':oneuser.username}) }}" title="Attribuer le rôle Proffeseur">
+                            <i class="fa fa-user-secret" aria-hidden="true"></i>
+                        </a>
+                        &nbsp;&nbsp;&nbsp;
+                        <a  href="{{ path('pgcp_admin_admin',{'username':oneuser.username}) }}" title="Attribuer le rôle Admin">
+                            <span class="glyphicon glyphicon-eye-open" aria-hidden="true">
+
+                                </span>
+                        </a>
+
+
+                    </td>
+
+
+                </tr>
+        {% endfor %}
+
+        </tbody>
+
+    </table>
+{% endblock %}

@@ -31,9 +31,10 @@
 
         <tbody>
         {% for oneuser in  users %}
-                <tr>
+                <tr {% if oneuser.roles[0]=='ROLE_USER' %}class="danger" {% endif %}>
                     <td scope="row">{{ oneuser.username}}</td>
                     <td>{{ oneuser.email }}</td>
+                    {#<td>{% for role in oneuser.roles %}{{ role }} - {% endfor %}</td>#}
                     <td>{{ oneuser.roles[0] }}</td>
                     <td width="15%">
                         <a href="{{ path('pgcp_admin_etudiant',{'username':oneuser.username}) }}" title="Attribuer le rôle Etudiant">

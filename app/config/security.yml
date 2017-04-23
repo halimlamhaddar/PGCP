@@ -41,3 +41,8 @@ security:
 
     access_control:
         - { path: ^/admin, roles: ROLE_ADMIN, requires_channel: https }
+        - { path: ^/etudiant, roles: ROLE_ETUDIANT, requires_channel: https } # etudiant$ pour dire que ça termine avec
+        - { path: ^/professeur, roles: ROLE_PROFESSEUR, requires_channel: https }
+        - { path: ^/login$, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY }
+        - { path: ^/resetting, roles: IS_AUTHENTICATED_ANONYMOUSLY }

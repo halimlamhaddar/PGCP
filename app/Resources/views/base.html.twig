@@ -50,7 +50,9 @@
                                     <ul class="dropdown-menu dropdown-usermenu pull-right">
                                         <li><a href="javascript:;"><i class="fa fa-user"></i> Profile</a></li>
                                         <li><a href="javascript:;"><i class="fa fa-tasks"></i> Tâches</a></li>
-                                        <li><a href="javascript:;"><i class="fa fa-cogs"></i> Configuration</a></li>
+                                        {% if is_granted('ROLE_ADMIN') %}
+                                            <li><a href="{{ path('pgcp_admin') }}"><i class="fa fa-cogs"></i> Configuration</a></li>
+                                        {% endif %}
                                         <li><a href="javascript:;"><i class="fa fa-question"></i> Help</a></li>
                                         <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
                                     </ul>
@@ -127,8 +129,43 @@
                 </div>
                 <!-- /top navigation -->
             {% endblock %}
-            {% block content %}
-            {% endblock %}
+
+
+
+
+
+
+
+            <!-- page content -->
+            <div class="right_col" role="main">
+                <div class="">
+                    <div class="page-title">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <ol class="breadcrumb">
+                                    <li class="active">
+                                        <i class="fa fa-dashboard"></i> <a href="{{ path('pgcp_homepage') }}">Accueil</a>
+                                    </li>
+
+
+                                </ol>
+                            </div>
+                            <div class="col-lg-12">
+                                {% block content %}
+                                {% endblock %}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- /page content -->
+
+
+
+
+
             {% block footer %}
                 <!-- footer content -->
                 <footer>

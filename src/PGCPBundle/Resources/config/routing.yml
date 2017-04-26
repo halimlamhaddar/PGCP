@@ -7,8 +7,6 @@ pgcp_homepage:
     path:     /home
     defaults: { _controller: PGCPBundle:Home:index }
 
-<<<<<<< Updated upstream
-=======
 pgcp_etudiant:
     path:     /etudiant
     defaults: { _controller: PGCPBundle:Etudiant:index }
@@ -16,8 +14,6 @@ pgcp_etudiant:
 pgcp_professeur:
     path:     /professeur
     defaults: { _controller: PGCPBundle:Professeur:index }
-
->>>>>>> Stashed changes
 
 
 #Administration-----------------------------------------

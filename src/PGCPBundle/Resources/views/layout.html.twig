@@ -32,12 +32,14 @@
                                 <li><a href=""><i class="fa fa-search"></i> troisième année</a></li>
                             </ul>
                         </li>
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <li><a><i class="fa fa-cog"></i> Configuration <span class="fa fa-chevron-down"></span></a>
+                                <ul class="nav child_menu">
+                                    <li><a href="{{ path('pgcp_admin') }}"><i class="fa fa-table"></i> Administration </a></li>
+                                </ul>
+                            </li>
+                        {% endif %}
 
-                        <li><a><i class="fa fa-cog"></i> Configuration <span class="fa fa-chevron-down"></span></a>
-                            <ul class="nav child_menu">
-                                <li><a href=""><i class="fa fa-table"></i> Tables statiques</a></li>
-                            </ul>
-                        </li>
                         <li><a href="#"><i class="fa fa-trash"></i>Corbeille</a></li>
                     </ul>
                 </div>

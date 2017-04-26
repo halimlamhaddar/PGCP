@@ -1,49 +1,25 @@
 {% extends('@PGCP/layout.html.twig') %}
-<<<<<<< Updated upstream
 {% block title %}{{ parent() }} Home{% endblock %}
-=======
 
-{% block title %}{{ parent() }} Home {% endblock %}
-
->>>>>>> Stashed changes
 {% block content %}
-        <!-- page content -->
-        <div class="right_col" role="main">
-                <div class="">
-                        <div class="page-title">
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    <ol class="breadcrumb">
-                                        <li class="active">
-                                            <i class="fa fa-dashboard"></i> <a href="{{ path('pgcp_homepage') }}">Accueil</a>
-                                        </li>
+            <div class="list-group">
+                <a href="#" class="list-group-item active">Programmation C</a>
+                <a href="#" class="list-group-item">Probabilité et simulation</a>
+                <a href="#" class="list-group-item">Circuit logique et éléctronique numérique</a>
+                <a href="#" class="list-group-item">Techniques d'expression</a>
+                <a href="{{ path('pgcp_admin') }}" class="list-group-item">go to admin</a>
+                {% if is_granted('ROLE_PROFESSEUR') %}
+                    <a href="#" class="list-group-item">Je suis professeur</a>
+                {% endif %}
+                {% if is_granted('ROLE_ETUDIANT') %}
+                    <a href="#" class="list-group-item">Je suis etudiant</a>
+                {% endif %}
+                {% if is_granted('ROLE_ADMIN') %}
+                    <a href="#" class="list-group-item">Je suis admin</a>
+                {% endif %}
 
-
-                                    </ol>
-                                </div>
-                                <div class="col-lg-12">
-                                    <div class="list-group">
-                                        <a href="#" class="list-group-item active">Programmation C</a>
-                                        <a href="#" class="list-group-item">Probabilité et simulation</a>
-                                        <a href="#" class="list-group-item">Circuit logique et éléctronique numérique</a>
-                                        <a href="#" class="list-group-item">Techniques d'expression</a>
-                                        <a href="{{ path('pgcp_admin') }}" class="list-group-item">go to admin</a>
-                                        {% if is_granted('ROLE_PROFESSEUR') %}
-                                            <a href="#" class="list-group-item">Je suis professeur</a>
-                                        {% endif %}
-                                        {% if is_granted('ROLE_ETUDIANT') %}
-                                            <a href="#" class="list-group-item">Je suis etudiant</a>
-                                        {% endif %}
-                                        {% if is_granted('ROLE_ADMIN') %}
-                                            <a href="#" class="list-group-item">Je suis admin</a>
-                                        {% endif %}
-
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                </div>
             </div>
+
 
 
         <!-- /page content -->

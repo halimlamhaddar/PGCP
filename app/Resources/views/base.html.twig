@@ -134,8 +134,6 @@
 
 
 
-
-
             <!-- page content -->
             <div class="right_col" role="main">
                 <div class="">
@@ -151,17 +149,21 @@
                                 </ol>
                             </div>
                             <div class="col-lg-12">
-                                {% block content %}
-                                {% endblock %}
+
+
+
                             </div>
                         </div>
                     </div>
+                    <div class="clear">
+                        {% block content %}
+
+                        {% endblock %}
+
+                    </div>
                 </div>
             </div>
-
-
             <!-- /page content -->
-
 
 
 

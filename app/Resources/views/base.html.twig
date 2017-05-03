@@ -140,13 +140,16 @@
                     <div class="page-title">
                         <div class="row">
                             <div class="col-lg-12">
-                                <ol class="breadcrumb">
-                                    <li class="active">
-                                        <i class="fa fa-dashboard"></i> <a href="{{ path('pgcp_homepage') }}">Accueil</a>
-                                    </li>
+                                    <ol class="breadcrumb">
+                                        <li>
+                                            <a href="{{ path('pgcp_homepage') }}">Accueil</a>
+                                        </li>
 
 
-                                </ol>
+                                        <li class="active">{% block soustitre %}{% endblock %}</li>
+                                    </ol>
+
+
                             </div>
                             <div class="col-lg-12">
 

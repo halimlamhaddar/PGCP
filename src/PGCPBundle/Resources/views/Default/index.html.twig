@@ -2,25 +2,49 @@
 {% block title %}{{ parent() }} Home{% endblock %}
 
 {% block content %}
-            <div class="list-group">
-                <a href="#" class="list-group-item active">Programmation C</a>
-                <a href="#" class="list-group-item">Probabilité et simulation</a>
-                <a href="#" class="list-group-item">Circuit logique et éléctronique numérique</a>
-                <a href="#" class="list-group-item">Techniques d'expression</a>
-                <a href="{{ path('pgcp_admin') }}" class="list-group-item">go to admin</a>
-                {% if is_granted('ROLE_PROFESSEUR') %}
-                    <a href="#" class="list-group-item">Je suis professeur</a>
-                {% endif %}
-                {% if is_granted('ROLE_ETUDIANT') %}
-                    <a href="#" class="list-group-item">Je suis etudiant</a>
-                {% endif %}
-                {% if is_granted('ROLE_ADMIN') %}
-                    <a href="#" class="list-group-item">Je suis admin</a>
-                {% endif %}
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
+                <!-- Start WOWSlider.com HEAD section -->
+                <link rel="stylesheet" type="text/css" href="{{ asset('vendor/Slides/engine1/style.css') }}" />
+                <script type="text/javascript" src="{{ asset('vendor/Slides/engine1/jquery.js') }}"></script>
+                <!-- End WOWSlider.com HEAD section -->
+
+
+
+                <!-- Start WOWSlider.com BODY section -->
+                <div id="wowslider-container1">
+                    <div class="ws_images"><ul>
+                            <li><img src="{{ asset('vendor/Slides/data1/images/ssi.jpg') }}" alt="SSI" title="&nbsp;&nbsp;&nbsp;<strong>SSI </strong>: Sécurité des &nbsp;&nbsp;Systèmes " id="wows1_5"/></li>
+                            <li><img src="{{ asset('vendor/Slides/data1/images/embi.jpg') }}" alt="EMBI" title="&nbsp;&nbsp;&nbsp;&nbsp;<strong>EMBI</strong> : Business &nbsp;&nbsp;&nbsp;Intelligence" id="wows1_0"/></li>
+                            <li><img src="{{ asset('vendor/Slides/data1/images/gl.jpg') }}" alt="GL" title="&nbsp;&nbsp;&nbsp;<strong>GL </strong>: Genie Logiciel" id="wows1_1"/></li>
+                            <li><img src="{{ asset('vendor/Slides/data1/images/iel.jpg') }}" alt="IEL" title="&nbsp;&nbsp;&nbsp;<strong>IEL</strong> : e-Logistique" id="wows1_2"/></li>
+                            <li><img src="{{ asset('vendor/Slides/data1/images/isem.jpg') }}" alt="ISEM" title="&nbsp;&nbsp;&nbsp;<strong>ISEM </strong>: Systèmes &nbsp;&nbsp;Embarqués et Mobiles" id="wows1_3"/></li>
+                            <li><img src="{{ asset('vendor/Slides/data1/images/iwim.jpg') }}" alt="IWIM" title="&nbsp;&nbsp;&nbsp;<strong>IWIM </strong>: Web & &nbsp;&nbsp;Informatique Mobile" id="wows1_4"/></li>
+                        </ul></div>
+                    <div class="ws_bullets"><div>
+                            <a href="#" title="SSI"><span><img src="{{ asset('vendor/Slides/data1/tooltips/ssi.jpg') }}" alt="SSI"/>6</span></a>
+                            <a href="#" title="EMBI"><span><img src="{{ asset('vendor/Slides/data1/tooltips/embi.jpg') }}" alt="EMBI"/>1</span></a>
+                            <a href="#" title="GL"><span><img src="{{ asset('vendor/Slides/data1/tooltips/gl.jpg') }}" alt="GL"/>2</span></a>
+                            <a href="#" title="IEL"><span><img src="{{ asset('vendor/Slides/data1/tooltips/iel.jpg') }}" alt="IEL"/>3</span></a>
+                            <a href="#" title="ISEM"><span><img src="{{ asset('vendor/Slides/data1/tooltips/isem.jpg') }}" alt="ISEM"/>4</span></a>
+                            <a href="#" title="IWIM"><span><img src="{{ asset('vendor/Slides/data1/tooltips/iwim.jpg') }}" alt="IWIM"/>5</span></a>
+                        </div></div><div class="ws_script" style="position:absolute;left:-99%"><a href="http://wowslider.com">wowslideshow</a> by WOWSlider.com v8.7</div>
+                    <div class="ws_shadow"></div>
+                </div>
+                <script type="text/javascript" src="{{ asset('vendor/Slides/engine1/wowslider.js') }}"></script>
+                <script type="text/javascript" src="{{ asset('vendor/Slides/engine1/script.js') }}"></script>
+                <!-- End WOWSlider.com BODY section -->
 
             </div>
+            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
+                <div class="container-fluid">
+                    bsd
+                </div>
+            </div>
+        </div>
+    </div>
 
-
-
-        <!-- /page content -->
 {% endblock %}

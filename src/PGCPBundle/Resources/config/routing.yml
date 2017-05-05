@@ -32,4 +32,8 @@ pgcp_admin_professeur:
 pgcp_admin_admin:
     path:     /admin/admin/{username}
     defaults: { _controller: PGCPBundle:Admin:admin }
+pgcp_admin_delete:
+    path:     /admin/delete/{username}
+    defaults: { _controller: PGCPBundle:Admin:delete }
+
 #------------------------------------------------------

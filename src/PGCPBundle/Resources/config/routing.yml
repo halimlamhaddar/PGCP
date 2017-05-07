@@ -15,6 +15,10 @@ pgcp_professeur:
     path:     /professeur
     defaults: { _controller: PGCPBundle:Professeur:index }
 
+pgcp_professeur_ajouterCours:
+    path:     /professeur/addCourse
+    defaults: { _controller: PGCPBundle:Professeur:ajouterCours }
+
 
 #Administration-----------------------------------------
 pgcp_admin:

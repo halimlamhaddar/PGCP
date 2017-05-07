@@ -9,6 +9,7 @@ imports:
 # http://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en # en for english lang
+    cours_directory: '%kernel.root_dir%/../web/uploads/cours'
 
 framework:
     #esi:             ~

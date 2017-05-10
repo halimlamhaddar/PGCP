@@ -1,0 +1,50 @@
+{% extends('@PGCP/layout.html.twig') %}
+{% block title %}{{ parent() }} Home | Professeurs | AjouterCours{% endblock %}
+{% block soustitre %}Professeurs{% endblock %}
+{% block content %}
+
+    {% if not id=='' %}
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            <strong>Cours</strong> enregistré dans la BD ...
+
+        </div>
+    {% endif %}
+
+    <div class="form-group">
+        <div class="col-sm-10">
+            <a href="{{ path('pgcp_professeur_ajouterCours') }}"><button type="submit" class="btn btn-primary">Ajouter un Cours</button></a>
+        </div>
+    </div>
+
+
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>Intitulé</th>
+            <th>Description</th>
+            <th>Objectifs</th>
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for cours in courses %}
+        <tr>
+            <td>{{ cours.intitule }}</td>
+            <td>{{ cours.description }}</td>
+            <td>{{ cours.objectifs }}</td>
+            <td>
+                <a href="{{ asset('uploads/cours/' ~ cours.lien) }}" title="Visualiser le cours">
+                    <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+
+{% endblock %}

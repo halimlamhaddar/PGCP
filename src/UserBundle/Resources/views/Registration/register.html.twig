@@ -1,0 +1,25 @@
+{% extends "@User/layout.html.twig" %}
+{% block soustitre %}{{ parent() }} | Enregistrement{% endblock %}
+{% block fos_user_content %}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-md-offset-3">
+            <div class="panel panel-info">
+                <div class="panel-heading">
+                    <div class="panel-title">{{ 'S\'enregistrer' | trans }}</div>
+                    <div style="float:right; font-size: 85%; position: relative; top:-10px"><a id="signinlink" href="{{ path('fos_user_security_login') }}" onclick="$('#signupbox').hide(); $('#loginbox').show()">{{ 'Se connecter' | trans }}</a></div>
+                </div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            {% include "@FOSUser/Registration/register_content.html.twig" %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock fos_user_content %}

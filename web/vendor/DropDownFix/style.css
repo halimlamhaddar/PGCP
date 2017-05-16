@@ -1,0 +1,4 @@
+.nav.side-menu>li.active>a{
+    text-shadow:rgba(0,0,0,0.25) 0 -1px 0;
+    background:linear-gradient(#560407, #570a1d), #54190d;
+}

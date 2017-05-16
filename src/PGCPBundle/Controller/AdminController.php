@@ -33,7 +33,7 @@ class AdminController extends Controller
 
         return $this->render('@PGCP/Admin/admin.html.twig', array(
             'users'=>$users,
-            'role'=>'etudiant',
+            'role'=>'ETUDIANT',
             'commande'=>'',
             'nom' => $user->getUsername()
 
@@ -52,7 +52,7 @@ class AdminController extends Controller
 
         return $this->render('@PGCP/Admin/admin.html.twig', array(
             'users'=>$users,
-            'role'=>'professeur',
+            'role'=>'PROFESSEUR',
             'commande'=>'',
             'nom' => $user->getUsername()
         ));
@@ -70,7 +70,26 @@ class AdminController extends Controller
 
         return $this->render('@PGCP/Admin/admin.html.twig', array(
             'users'=>$users,
-            'role'=>'admin',
+            'role'=>'ADMIN',
+            'commande'=>'',
+            'nom' => $user->getUsername()
+        ));
+    }
+
+    public function chefdefiliereAction($username)
+    {
+        $userManager=$this->container->get('fos_user.user_manager');
+
+        $user=$userManager->findUserByUsername($username);
+        $user->setRoles(array('ROLE_CHEF_DE_FILIERE'));
+        $userManager->updateUser($user);
+
+        $users=$userManager->findUsers();
+
+
+        return $this->render('@PGCP/Admin/admin.html.twig', array(
+            'users'=>$users,
+            'role'=>'CHEF DE FILIERE',
             'commande'=>'',
             'nom' => $user->getUsername()
         ));

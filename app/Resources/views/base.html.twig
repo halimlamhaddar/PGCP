@@ -51,7 +51,7 @@
                                         <li><a href="javascript:;"><i class="fa fa-user"></i> Profile</a></li>
                                         <li><a href="javascript:;"><i class="fa fa-tasks"></i> Tâches</a></li>
                                         {% if is_granted('ROLE_ADMIN') %}
-                                            <li class="label-info"><a href="{{ path('pgcp_admin') }}"><i class="fa fa-cogs"></i> Configuration</a></li>
+                                            <li class="label-warning"><a href="{{ path('pgcp_admin') }}"><i class="fa fa-cogs"></i> Configuration</a></li>
                                         {% endif %}
                                         <li><a href="javascript:;"><i class="fa fa-question"></i> Help</a></li>
                                         <li><a href="{{ path('fos_user_security_logout') }}"><i class="fa fa-sign-out pull-right"></i> Log Out</a></li>
@@ -140,13 +140,15 @@
                     <div class="page-title">
                         <div class="row">
                             <div class="col-lg-12">
-                                    <ol class="breadcrumb">
+
+                                    <ol class="breadcrumb" style="background-color: whitesmoke" >
                                         <li>
-                                            <a href="{{ path('pgcp_homepage') }}">Accueil</a>
+                                            <a href="{{ path('pgcp_homepage') }}">ENSIAS</a>
                                         </li>
 
+                                        {% block soustitre %}{% endblock %}
 
-                                        <li class="active">{% block soustitre %}{% endblock %}</li>
+
                                     </ol>
 
 

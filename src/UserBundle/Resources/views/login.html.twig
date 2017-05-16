@@ -1,5 +1,7 @@
 {% extends "@User/layout.html.twig" %}
-{% block soustitre %}{{ parent() }} | Connexion{% endblock %}
+{% block soustitre %}
+    <li class="active">Connexion</li>
+{% endblock %}
 {% block fos_user_content %}
     {{ include('@FOSUser/Security/login_content.html.twig') }}
 {% endblock fos_user_content %}

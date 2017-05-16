@@ -1,5 +1,9 @@
 {% extends('@User/layout.html.twig') %}
-{% block soustitre %}{{ parent() }} Administration{% endblock %}
+{% block soustitre %}{{ parent() }}
+
+    <li class="active">Administration</li>
+
+{% endblock %}
 {% block fos_user_content %}
     {% if not role =='' %}
         <div class="alert alert-success">
@@ -51,17 +55,25 @@
                             <i class="fa fa-user-secret" aria-hidden="true"></i>
                         </a>
                         &nbsp;&nbsp;&nbsp;
+                        <a  href="{{ path('pgcp_admin_chefdefiliere',{'username':oneuser.username}) }}" title="Attribuer le rôle Chef de Filière">
+                            <span class="glyphicon glyphicon-star" aria-hidden="true">
+
+                                </span>
+                        </a>
+                        &nbsp;&nbsp;&nbsp;
                         <a  href="{{ path('pgcp_admin_admin',{'username':oneuser.username}) }}" title="Attribuer le rôle Admin">
                             <span class="glyphicon glyphicon-eye-open" aria-hidden="true">
 
                                 </span>
                         </a>
+
                         &nbsp;&nbsp;&nbsp;
                         <a  href="{{ path('pgcp_admin_delete',{'username':oneuser.username}) }}" title="Supprimer cet utilisateur">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true">
 
                                 </span>
                         </a>
+
 
 
                     </td>

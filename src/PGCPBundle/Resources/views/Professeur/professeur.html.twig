@@ -1,6 +1,15 @@
 {% extends('@PGCP/layout.html.twig') %}
-{% block title %}{{ parent() }} Home | Professeurs{% endblock %}
-{% block soustitre %}Professeurs{% endblock %}
+{% block title %}{{ parent() }} | Professeurs | AjouterCours{% endblock %}
+{% block soustitre %}
+
+    <li>
+        <a href="{{ path('pgcp_professeur') }}">Professeurs</a>
+    </li>
+    <li class="active">
+        <a href="{{ path('pgcp_professeur_ajouterCours') }}">Ajouter un cours</a>
+    </li>
+
+{% endblock %}
 {% block content %}
 
 

@@ -11,6 +11,11 @@ pgcp_etudiant:
     path:     /etudiant
     defaults: { _controller: PGCPBundle:Etudiant:index }
 
+
+pgcp_chefdefiliere:
+    path:     /chefdefiliere
+    defaults: { _controller: PGCPBundle:ChefDeFiliere:index }
+
 pgcp_professeur:
     path:     /professeur
     defaults: { _controller: PGCPBundle:Professeur:index }
@@ -39,5 +44,8 @@ pgcp_admin_admin:
 pgcp_admin_delete:
     path:     /admin/delete/{username}
     defaults: { _controller: PGCPBundle:Admin:delete }
+pgcp_admin_chefdefiliere:
+    path:     /admin/chefDeFiliere/{username}
+    defaults: { _controller: PGCPBundle:Admin:chefdefiliere }
 
 #------------------------------------------------------

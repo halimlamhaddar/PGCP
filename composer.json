@@ -30,7 +30,8 @@
         "incenteev/composer-parameter-handler": "^2.0",
         "knplabs/knp-paginator-bundle": "^2.5",
         "friendsofsymfony/user-bundle": "~2.0",
-        "phpunit/phpunit": "^5.7"
+        "phpunit/phpunit": "^5.7",
+        "fungio/google-calendar-bundle": "dev-master"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

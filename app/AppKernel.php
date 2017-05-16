@@ -19,6 +19,8 @@ class AppKernel extends Kernel
             new PGCPBundle\PGCPBundle(),
             new UserBundle\UserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
+            new Fungio\GoogleCalendarBundle\FungioGoogleCalendarBundle(),
+
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

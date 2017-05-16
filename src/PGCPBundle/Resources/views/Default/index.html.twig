@@ -1,66 +1,176 @@
 {% extends('@PGCP/layout.html.twig') %}
 {% block title %}{{ parent() }} Home{% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+
+    <!-- Start WOWSlider.com HEAD section -->
+    <link rel="stylesheet" type="text/css" href="{{ asset('vendor/Slides/engine1/style.css') }}" />
+    <script type="text/javascript" src="{{ asset('vendor/Slides/engine1/jquery.js') }}"></script>
+    <!-- End WOWSlider.com HEAD section -->
+
+{% endblock %}
+
+{% block soustitre %}
+    <li class="active">
+        <a href="{{ path('pgcp_homepage') }}">Accueil</a>
+    </li>
+{% endblock %}
+
+
 
 {% block content %}
 
 
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-xs-7 col-sm-7 col-md-7 col-lg-7">
-                <!-- Start WOWSlider.com HEAD section -->
-                <link rel="stylesheet" type="text/css" href="{{ asset('vendor/Slides/engine1/style.css') }}" />
-                <script type="text/javascript" src="{{ asset('vendor/Slides/engine1/jquery.js') }}"></script>
-                <!-- End WOWSlider.com HEAD section -->
 
 
-
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                {#SLIDES#}
                 <!-- Start WOWSlider.com BODY section -->
                 <div id="wowslider-container1">
                     <div class="ws_images"><ul>
-                            <li><img src="{{ asset('vendor/Slides/data1/images/ssi.jpg') }}" alt="SSI" title="&nbsp;&nbsp;&nbsp;<strong>SSI </strong>: Sécurité des &nbsp;&nbsp;Systèmes " id="wows1_5"/></li>
-                            <li><img src="{{ asset('vendor/Slides/data1/images/embi.jpg') }}" alt="EMBI" title="&nbsp;&nbsp;&nbsp;&nbsp;<strong>EMBI</strong> : Business &nbsp;&nbsp;&nbsp;Intelligence" id="wows1_0"/></li>
-                            <li><img src="{{ asset('vendor/Slides/data1/images/gl.jpg') }}" alt="GL" title="&nbsp;&nbsp;&nbsp;<strong>GL </strong>: Genie Logiciel" id="wows1_1"/></li>
-                            <li><img src="{{ asset('vendor/Slides/data1/images/iel.jpg') }}" alt="IEL" title="&nbsp;&nbsp;&nbsp;<strong>IEL</strong> : e-Logistique" id="wows1_2"/></li>
-                            <li><img src="{{ asset('vendor/Slides/data1/images/isem.jpg') }}" alt="ISEM" title="&nbsp;&nbsp;&nbsp;<strong>ISEM </strong>: Systèmes &nbsp;&nbsp;Embarqués et Mobiles" id="wows1_3"/></li>
-                            <li><img src="{{ asset('vendor/Slides/data1/images/iwim.jpg') }}" alt="IWIM" title="&nbsp;&nbsp;&nbsp;<strong>IWIM </strong>: Web & &nbsp;&nbsp;Informatique Mobile" id="wows1_4"/></li>
+                            <li><img src="{{ asset('vendor/Slides/data1/images/embi.jpg') }}" alt="embi" title="embi" id="wows1_0"/></li>
+                            <li><img src="{{ asset('vendor/Slides/data1/images/gl.jpg') }}" alt="gl" title="gl" id="wows1_1"/></li>
+                            <li><img src="{{ asset('vendor/Slides/data1/images/iel.jpg') }}" alt="iel" title="iel" id="wows1_2"/></li>
+                            <li><img src="{{ asset('vendor/Slides/data1/images/isem.jpg') }}" alt="isem" title="isem" id="wows1_3"/></li>
+                            <li><img src="{{ asset('vendor/Slides/data1/images/iwim.jpg') }}" alt="bootstrap slider" title="iwim" id="wows1_4"/></li>
+                            <li><img src="{{ asset('vendor/Slides/data1/images/ssi.jpg') }}" alt="ssi" title="ssi" id="wows1_5"/></li>
                         </ul></div>
                     <div class="ws_bullets"><div>
-                            <a href="#" title="SSI"><span><img src="{{ asset('vendor/Slides/data1/tooltips/ssi.jpg') }}" alt="SSI"/>6</span></a>
-                            <a href="#" title="EMBI"><span><img src="{{ asset('vendor/Slides/data1/tooltips/embi.jpg') }}" alt="EMBI"/>1</span></a>
-                            <a href="#" title="GL"><span><img src="{{ asset('vendor/Slides/data1/tooltips/gl.jpg') }}" alt="GL"/>2</span></a>
-                            <a href="#" title="IEL"><span><img src="{{ asset('vendor/Slides/data1/tooltips/iel.jpg') }}" alt="IEL"/>3</span></a>
-                            <a href="#" title="ISEM"><span><img src="{{ asset('vendor/Slides/data1/tooltips/isem.jpg') }}" alt="ISEM"/>4</span></a>
-                            <a href="#" title="IWIM"><span><img src="{{ asset('vendor/Slides/data1/tooltips/iwim.jpg') }}" alt="IWIM"/>5</span></a>
-                        </div></div><div class="ws_script" style="position:absolute;left:-99%"><a href="http://wowslider.com">wowslideshow</a> by WOWSlider.com v8.7</div>
+                            <a href="#" title="embi"><span><img src="{{ asset('vendor/Slides/data1/tooltips/embi.jpg') }}" alt="embi"/>1</span></a>
+                            <a href="#" title="gl"><span><img src="{{ asset('vendor/Slides/data1/tooltips/gl.jpg') }}" alt="gl"/>2</span></a>
+                            <a href="#" title="iel"><span><img src="{{ asset('vendor/Slides/data1/tooltips/iel.jpg') }}" alt="iel"/>3</span></a>
+                            <a href="#" title="isem"><span><img src="{{ asset('vendor/Slides/data1/tooltips/isem.jpg') }}" alt="isem"/>4</span></a>
+                            <a href="#" title="iwim"><span><img src="{{ asset('vendor/Slides/data1/tooltips/iwim.jpg') }}" alt="iwim"/>5</span></a>
+                            <a href="#" title="ssi"><span><img src="{{ asset('vendor/Slides/data1/tooltips/ssi.jpg') }}" alt="ssi"/>6</span></a>
+                        </div></div><div class="ws_script" style="position:absolute;left:-99%"><a href="http://wowslider.com">wow slider</a> by WOWSlider.com v8.7</div>
                     <div class="ws_shadow"></div>
                 </div>
                 <script type="text/javascript" src="{{ asset('vendor/Slides/engine1/wowslider.js') }}"></script>
                 <script type="text/javascript" src="{{ asset('vendor/Slides/engine1/script.js') }}"></script>
                 <!-- End WOWSlider.com BODY section -->
-
             </div>
-            <div class="col-xs-5 col-sm-5 col-md-5 col-lg-5">
-                <div class="container-fluid">
-                    <table class="table table-hover">
-                        <thead>
-                        <tr>
-                            <th>Title</th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>Content a</td>
-                        </tr>
-                        </tbody>
-                        <tfoot>
-                        <tr>
-                            <th>Footer</th>
-                        </tr>
-                        </tfoot>
-                    </table>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+                <div class="row">
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        {#ACTUALITES#}
+                        <div class="row carousel-row"><!--actuuualites-->
+                            <div class="col-xs-8 col-xs-offset-2 slide-row">
+                                <div class="carousel slide slide-carousel" id="carousel-1" data-ride="carousel">
+                                    <!-- Indicators -->
+                                    <ol class="carousel-indicators">
+                                        <li data-target="#carousel-1" data-slide-to="0" class="active"></li>
+                                        <li data-target="#carousel-1" data-slide-to="1"></li>
+                                        <li data-target="#carousel-1" data-slide-to="2"></li>
+                                    </ol>
+
+                                    <!-- Wrapper for slides -->
+                                    <div class="carousel-inner">
+                                        {% for actu in actualites %}
+                                            <div class="item {% if actu.id==1 %}active{% endif %}">
+                                                <strong><h4>{{ actu.titre }}</h4></strong>
+                                                <div class="slide-content">
+                                                    <hr style="width: 80%; color: grey; height: 1px; background-color:darkgrey;"/>
+                                                    <p>
+                                                        &nbsp;&nbsp;&nbsp;{{ actu.contenu }}
+                                                    </p>
+                                                    <p><em>Date de mise en ligne : </em>
+                                                        <strong>{{ actu.date |date("m/d/Y H:i:s", false) }}</strong></p>
+                                                </div>
+                                                <div class="slide-footer">
+                                <span class="pull-right buttons">
+                                    <button class="btn btn-sm btn-default"><i class="fa fa-fw fa-eye"></i> Lire la suite
+                                    </button>
+                                </span>
+                                                </div>
+                                            </div>
+                                        {% endfor %}
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                        {#CALENDAR#}
+                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <div class="row">
+        <br><br>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="col-xs-8 col-sm-8 col-md-8 col-lg-8">
+                {% for actu in actualites %}
+                    <div class="panel panel-info">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading"><strong>{{ actu.titre}} </strong></div>
+                        <div class="panel-body">
+                            <div class="col-lg-12">
+                                <div class="col-sm-3">
+
+                                    <img width="80%" src="{{ asset('images/ensias.png') }}"
+                                         alt="{{ actu.titre }}">
+
+                                </div>
+                                <div class="col-sm-7">
+                                    <div class="col-lg-24">
+                                        <table class="table table-user-information">
+                                            <tbody>
+                                            <tr>
+                                                <td><b>Titre</b></td>
+                                                <td><i>{{ actu.titre }}</i></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Contenu</b></td>
+                                                <td><i>{{ actu.contenu }}</i></td>
+                                            </tr>
+                                            <tr>
+                                                <td><b>Date</b></td>
+                                                <td><i>{{ actu.date |date("m/d/Y H:i:s", false) }}</i></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                    <div class="col-lg-24">
+
+                                        <div class="col-sm-2"></div>
+                                        <div class="col-sm-5">
+                                            <a href="#" class="btn btn-success btn-sm">Effectuer sortie</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <a href="#" type="button" class="btn btn-sm btn-primary"><i
+                                        class="glyphicon glyphicon-envelope"></i></a>
+                        <span class="pull-right">
+                            <a href="#"
+                               data-original-title="Edit this user" data-toggle="tooltip" type="button"
+                               class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                            <a href="#" type="button"
+                               class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                        </span>
+                        </div>
+                    </div>
+
+                {% endfor %}
+
+            </div>
+            <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4">
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
 
 {% endblock %}

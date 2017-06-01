@@ -17,7 +17,12 @@
         </div>
     {% endif %}
 
-
+    {% if valider %}
+        <div class="alert alert-success">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+            Cours de<strong> {{ cours.intitule }}</strong> de <strong>Mr {{ cours.proprietaire }}</strong> validé par le chef de filière...
+        </div>
+    {% endif %}
 
 
     <table class="table table-bordered table-hover">
@@ -26,19 +31,32 @@
             <th>Intitulé</th>
             <th>Description</th>
             <th>Objectifs</th>
+            <th>Responsable</th>
+            <th>Status</th>
             <th></th>
         </tr>
         </thead>
         <tbody>
         {% for cours in courses %}
-        <tr>
+        <tr {% if not cours.valide %}class="danger" {% endif %}>
             <td>{{ cours.intitule }}</td>
             <td>{{ cours.description }}</td>
             <td>{{ cours.objectifs }}</td>
+            <td>{{ cours.proprietaire }}</td>
+            <td>{% if cours.valide %}
+                    &nbsp;&nbsp;&nbsp;<span class="fa fa-check-square-o"></span>
+                {% else %}
+                    &nbsp;&nbsp;&nbsp;<i class="fa fa-spinner fa-spin fa-1x fa-fw"></i>
+                {% endif %}</td>
             <td>
+
                 <a href="{{ asset('uploads/cours/' ~ cours.lien) }}" title="Visualiser le cours">
                     <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
                 </a>
+                <a href="{{ path('pgcp_chefdefiliere_valider',{'id': cours.id}) }}" title="Valider ce cours">
+                    <span class="fa fa-reply" aria-hidden="true"></span>
+                </a>
+
             </td>
         </tr>
         {% endfor %}

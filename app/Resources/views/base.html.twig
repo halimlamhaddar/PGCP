@@ -12,12 +12,19 @@
         <link href="{{ asset("vendor/nprogress/nprogress.css") }}" rel="stylesheet">
         <link href="{{ asset("vendor/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.min.css") }}" rel="stylesheet">
         <link href="{{ asset("vendor/build/css/custom.min.css") }}" rel="stylesheet">
+        <link href="{{ asset('vendor/Pied/pied.css') }}" rel="stylesheet">
+        {#<link rel="icon" type="image/png" href="{{ asset('images/ensias.png') }}" />#}
     {% endblock %}
     <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
 </head>
-<body class="nav-md">
+<body class="nav-md" style="background-color: #900f00;">
 
 {% block body %}
+    {#<div class="page-header" >#}
+        {#<h1 style="color: #fff;">ENSIAS#}
+            {#<small>Sécurité des systèmes d'information</small>#}
+        {#</h1>#}
+    {#</div>#}
     <div class="container body">
         <div class="main_container">
             {% block menu %}
@@ -31,6 +38,11 @@
                             <div class="nav toggle">
                                 <a id="menu_toggle"><i class="fa fa-bars"></i></a>
                             </div>
+                            <ul class="nav navbar-nav navbar-left">
+                                <br>
+                                 <strong>S</strong>écurité des <strong>S</strong>ystèmes d'<strong>I</strong>nformation
+
+                            </ul>
                             {% if app.user is empty %}
                                 <ul class="nav navbar-nav navbar-right">
                                     <li class="">
@@ -175,12 +187,71 @@
 
             {% block footer %}
                 <!-- footer content -->
+                {#<footer style="background-color: #871000;color: whitesmoke;">#}
+                    {#-------------------------------------------------------------------------#}
+                    {#<div class="pull-right">#}
+                        {#Ensias - Plateforme de gestion réalisée par <em>SSI</em>#}
+                    {#</div>#}
+                    {#<div class="clearfix"></div>#}
+                {#</footer>#}
                 <footer>
-                    <div class="pull-right">
-                        Ensias - Plateforme de gestion réalisée par <em>SSI</em>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-3 col-sm-6 paddingtop-bottom">
+                                <h6 class="heading7">LOCALISATION</h6>
+                                <div class="container">
+                                    <div class="mapouter"><div class="gmap_canvas"><iframe width="600" height="500" id="gmap_canvas" src="https://maps.google.com/maps?q=Ensias, &t=&z=14&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe>wordpress themes by <a href="https://wpicus.com">wpicus</a></div><style>.mapouter{overflow:hidden;height:250px;}.gmap_canvas {background:none!important;height:500px;width:600px;}</style></div>
+                                </div>
+
+                            </div>
+                            <div class="col-md-2 col-sm-6 paddingtop-bottom">
+                                <h6 class="heading7">LIENS UTILES</h6>
+                                <ul class="footer-ul">
+                                    <li><a href="#"> UM5</a></li>
+                                    <li><a href="#"> ENSSUP</a></li>
+                                    <li><a href="#"> CNRST</a></li>
+                                    <li><a href="#"> IMIST</a></li>
+                                    <li><a href="#"> CSERFS</a></li>
+                                    <li><a href="#"> ALUMNI</a></li>
+                                </ul>
+                            </div>
+                            <div class="col-md-3 col-sm-6 paddingtop-bottom">
+                                <h6 class="heading7">SUIVEZ NOUS SUR</h6>
+                                <div class="post">
+                                    <p><i class="fa fa-facebook"></i> Facebook <span>https://fr-fr.facebook.com</span></p>
+                                    <p><i class="fa fa-twitter"></i> Twitter<span>https://fr-fr.twitter.com</span></p>
+                                    <p><i class="fa fa-linkedin"></i> LinkedIn<span>https://fr-fr.linkedin.com</span></p>
+                                    <p><i class="fa fa-google-plus"></i> Google<span>https://fr-fr.google.com</span></p>
+                                </div>
+                            </div>
+
+                            <div class="col-md-4 col-sm-6 footerleft ">
+                                <div class="logofooter"> CONTACTEZ NOUS</div>
+                                <p>Pour plus d'informations, contactez nous sur :</p>
+                                <p><i class="fa fa-map-pin"></i> Avenue Mohammed Ben Abdallah Regragui, Madinat Al Irfane, BP 713, Agdal Rabat, Maroc</p>
+                                <p><i class="fa fa-phone"></i> Téléphone (Maroc) : 0537 778579/ 0537 777317</p>
+                                <p><i class="fa fa-envelope"></i> E-mail : ensias@gmail.com</p>
+
+                            </div>
+                        </div>
                     </div>
-                    <div class="clearfix"></div>
                 </footer>
+                <!--footer start from here-->
+
+                <div class="copyright">
+                    <div class="container">
+                        <div class="col-md-6">
+                            <p></p>
+                        </div>
+                        <div class="col-md-6">
+                            <ul class="bottom_ul">
+                                <li><a href="#">© 2017 Ecole Nationale Supérieure d'Informatique et d'Analyse des Systèmes</a></li>
+                                <li><a href="#">A propos</a></li>
+                                <li><a href="#">Contactez nous</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
                 <!-- /footer content -->
             {% endblock %}
         </div>

@@ -1,10 +1,40 @@
 {% extends('@PGCP/layout.html.twig') %}
 {% block title %}{{ parent() }} Home | Etudiant{% endblock %}
-{% block soustitre %}Etudiant{% endblock %}
+{% block soustitre %}
+    <li class="active">Etudiant</li>
+{% endblock %}
 {% block content %}
 
 
+    <table class="table table-bordered table-hover">
+        <thead>
+        <tr>
+            <th>Intitulé</th>
+            <th>Description</th>
+            <th>Objectifs</th>
+            <th>Responsable</th>
 
+            <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for cours in courses %}
+            {% if cours.valide %}
+            <tr>
+                <td>{{ cours.intitule }}</td>
+                <td>{{ cours.description }}</td>
+                <td>{{ cours.objectifs }}</td>
+                <td>{{ cours.proprietaire }}</td>
+                <td>
+                    <a href="{{ asset('uploads/cours/' ~ cours.lien) }}" title="Visualiser le cours">
+                        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
+                    </a>
+                </td>
+            </tr>
+            {% endif %}
+        {% endfor %}
+        </tbody>
+    </table>
 
 
 {% endblock %}

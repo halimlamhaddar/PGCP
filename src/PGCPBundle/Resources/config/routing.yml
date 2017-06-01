@@ -7,14 +7,30 @@ pgcp_homepage:
     path:     /home
     defaults: { _controller: PGCPBundle:Home:index }
 
+pgcp_actualite:
+    path:     /actualite/{id}
+    defaults: { _controller: PGCPBundle:Home:actu }
+
+#Etudiant ------------------------------------------------------------------
 pgcp_etudiant:
     path:     /etudiant
     defaults: { _controller: PGCPBundle:Etudiant:index }
 
+#---------------------------------------------------------------------------
+
+#Chef de filiere-------------------------------------------------------------------
 
 pgcp_chefdefiliere:
     path:     /chefdefiliere
     defaults: { _controller: PGCPBundle:ChefDeFiliere:index }
+
+pgcp_chefdefiliere_valider:
+    path:     /chefdefiliere/validerCours/{id}
+    defaults: { _controller: PGCPBundle:ChefDeFiliere:validerCours }
+
+#---------------------------------------------------------------------------
+
+#Professeur------------------------------------------------------------------
 
 pgcp_professeur:
     path:     /professeur
@@ -23,6 +39,9 @@ pgcp_professeur:
 pgcp_professeur_ajouterCours:
     path:     /professeur/addCourse
     defaults: { _controller: PGCPBundle:Professeur:ajouterCours }
+
+#---------------------------------------------------------------------------
+
 
 
 #Administration-----------------------------------------
@@ -47,5 +66,20 @@ pgcp_admin_delete:
 pgcp_admin_chefdefiliere:
     path:     /admin/chefDeFiliere/{username}
     defaults: { _controller: PGCPBundle:Admin:chefdefiliere }
+
+#------------------------------------------------------
+
+#Actualites-----------------------------------------
+
+pgcp_admin_ajouter_actualite:
+    path:     /admin/ajouterActualite
+    defaults: { _controller: PGCPBundle:Admin:ajouterActualite }
+
+#------------------------------------------------------
+#Slides-----------------------------------------
+
+pgcp_admin_ajouter_slide:
+    path:     /admin/ajouterSlide
+    defaults: { _controller: PGCPBundle:Admin:ajouterSlide }
 
 #------------------------------------------------------

@@ -3,6 +3,7 @@
 namespace PGCPBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Actualite
@@ -41,6 +42,56 @@ class Actualite
      * @ORM\Column(name="date", type="datetime", nullable=true)
      */
     private $date;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="avis", type="string")
+     */
+    private $avis;
+
+    /**
+     * @return mixed
+     */
+    public function getAvis()
+    {
+        return $this->avis;
+    }
+
+    /**
+     * @param mixed $avis
+     */
+    public function setAvis($avis)
+    {
+        $this->avis = $avis;
+    }
+
+
+    /**
+     * @ORM\Column(type="string",nullable=true)
+     *
+     * @Assert\NotBlank(message="Please, upload the image News as a JPG file.")
+     * @Assert\File(mimeTypes={ "image/jpeg" ,"image/pjpeg","image/png"})
+     * @Assert\Image(
+     *     minWidth="200",
+     *     minHeight="200"
+     * )
+     */
+
+    private $image;
+
+    public function setImage($img)
+    {
+        $this->image = $img;
+
+        return $this;
+    }
+
+    public function getImage()
+    {
+        return $this->image;
+    }
+
 
 
     /**
@@ -125,4 +176,3 @@ class Actualite
         return $this->date;
     }
 }
-

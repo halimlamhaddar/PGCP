@@ -2,6 +2,7 @@
 
 namespace UserBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use FOS\UserBundle\Model\User as BaseUser;
 
@@ -26,5 +27,53 @@ class User extends BaseUser
     protected $id;
 
 
-}
 
+    public function __construct()
+    {
+        parent::__construct();
+        $this->cours = new ArrayCollection();
+    }
+
+
+    /**
+     * @ORM\OneToMany(targetEntity="PGCPBundle\Entity\Cours", mappedBy="proprietaire")
+     */
+    private $cours;
+
+    
+
+
+    /**
+     * Add cour
+     *
+     * @param \PGCPBundle\Entity\Cours $cour
+     *
+     * @return User
+     */
+    public function addCour(\PGCPBundle\Entity\Cours $cour)
+    {
+        $this->cours[] = $cour;
+
+        return $this;
+    }
+
+    /**
+     * Remove cour
+     *
+     * @param \PGCPBundle\Entity\Cours $cour
+     */
+    public function removeCour(\PGCPBundle\Entity\Cours $cour)
+    {
+        $this->cours->removeElement($cour);
+    }
+
+    /**
+     * Get cours
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getCours()
+    {
+        return $this->cours;
+    }
+}

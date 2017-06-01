@@ -7,6 +7,7 @@ use PGCPBundle\Form\CoursType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
+use UserBundle\Entity\Enseignant;
 
 class ProfesseurController extends Controller
 {
@@ -27,8 +28,8 @@ class ProfesseurController extends Controller
         $cours=new Cours();
         $form = $this->get('form.factory')->create(CoursType::class, $cours);
 
-
         $form->handleRequest($request);
+//        die(dump($this->container->get('security.token_storage')->getToken()->getUser()));
 
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
@@ -45,10 +46,24 @@ class ProfesseurController extends Controller
             );
 
             $cours->setLien($fileName);
+            /*******/
+            $prof = new Enseignant() ;
+            $prof = $this->container->get('security.token_storage')->getToken()->getUser();
+            $prof->addCour($cours);
+            
 
+
+
+            $cours->setProprietaire($prof);
+
+
+
+
+            /*******/
             $em->persist($cours);
+            $em->persist($prof);
             $em->flush();
-
+            
 
             $courses=$this->getDoctrine()->getRepository(Cours::class)->findAll();
 

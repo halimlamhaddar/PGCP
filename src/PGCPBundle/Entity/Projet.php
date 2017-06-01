@@ -94,4 +94,3 @@ class Projet
         return $this->description;
     }
 }
-

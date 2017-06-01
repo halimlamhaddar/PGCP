@@ -17,9 +17,17 @@
         </div>
     {% endif %}
 
+
+    <blockquote style="border-color: #73879c">
+        Espace de travail resérvé à <strong>{{ app.user.username }}</strong>.
+        <small>Mes cours déposés</small>
+    </blockquote>
+
     <div class="form-group">
         <div class="col-sm-10">
-            <a href="{{ path('pgcp_professeur_ajouterCours') }}"><button type="submit" class="btn btn-primary">Ajouter un Cours</button></a>
+            <a href="{{ path('pgcp_professeur_ajouterCours') }}"><button type="submit" class="btn btn-primary">
+                    <span class="fa fa-plus-square"></span>  Ajouter un Cours
+                </button></a>
         </div>
     </div>
 
@@ -35,6 +43,7 @@
         </thead>
         <tbody>
         {% for cours in courses %}
+            {% if cours.proprietaire == app.user.username %}
         <tr>
             <td>{{ cours.intitule }}</td>
             <td>{{ cours.description }}</td>
@@ -45,7 +54,14 @@
                 </a>
             </td>
         </tr>
+                {% endif %}
         {% endfor %}
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+        </tr>
         </tbody>
     </table>
 

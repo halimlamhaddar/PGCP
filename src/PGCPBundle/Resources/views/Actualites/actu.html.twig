@@ -1,0 +1,61 @@
+{% extends('@PGCP/Default/index.html.twig') %}
+{% block actualites %}
+
+        <div class="panel panel-info">
+            <!-- Default panel contents -->
+            <div class="panel-heading"><strong>{{ actu.titre}} </strong></div>
+            <div class="panel-body">
+                <div class="col-lg-12">
+                    <div class="col-sm-3">
+
+                        <img width="100%" src="{{ asset('uploads/actualites/' ~ actu.image) }}"
+                             alt="{{ actu.titre }}">
+
+                    </div>
+                    <div class="col-sm-7">
+                        <div class="col-lg-24">
+                            <table class="table table-user-information">
+                                <tbody>
+                                <tr>
+                                    <td><b>Titre</b></td>
+                                    <td><strong>{{ actu.titre }}</strong></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Contenu</b></td>
+                                    <td><i>{{ actu.contenu }}</i></td>
+                                </tr>
+                                <tr>
+                                    <td><b>Date</b></td>
+                                    <td><i>{{ actu.date |date("m/d/Y H:i:s", false) }}</i></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="col-lg-24">
+
+                            <div class="col-sm-2"></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer">
+                <a href="#" data-original-title="Contacter la source" data-toggle="tooltip" type="button"
+                   class="btn btn-sm btn-primary"><i
+                            class="glyphicon glyphicon-envelope"></i></a>
+                        {% if is_granted('ROLE_ADMIN') %}
+                        <span class="pull-right">
+                            <a href="#"
+                               data-original-title="Modifier cette publication" data-toggle="tooltip" type="button"
+                               class="btn btn-sm btn-warning"><i class="glyphicon glyphicon-edit"></i></a>
+                            <a href="#"
+                               data-original-title="Supprimer cette publication" data-toggle="tooltip" type="button"
+                               class="btn btn-sm btn-danger"><i class="glyphicon glyphicon-remove"></i></a>
+                        </span>
+                        {% endif %}
+            </div>
+        </div>
+
+
+
+{% endblock %}

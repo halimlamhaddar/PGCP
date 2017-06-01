@@ -29,6 +29,17 @@ class Cours
      */
     private $intitule;
 
+
+    /**
+     * @var boolean
+     *
+     * @ORM\Column(name="valide", type="boolean", nullable=true,options={"default":false})
+     */
+    private $valide;
+
+
+
+
     /**
      * @var string
      *
@@ -64,6 +75,12 @@ class Cours
 
         return $this;
     }
+
+    /**
+     * @ORM\ManyToOne(targetEntity="UserBundle\Entity\User", inversedBy="cours")
+     * @ORM\JoinColumn(name="proprietaire_id", referencedColumnName="id",nullable=true)
+     */
+    private $proprietaire;
 
 
     /********************************************/
@@ -151,5 +168,52 @@ class Cours
     {
         return $this->objectifs;
     }
-}
 
+    /**
+     * Set proprietaire
+     *
+     * @param \UserBundle\Entity\User $proprietaire
+     *
+     * @return Cours
+     */
+    public function setProprietaire(\UserBundle\Entity\User $proprietaire = null)
+    {
+        $this->proprietaire = $proprietaire;
+
+        return $this;
+    }
+
+    /**
+     * Get proprietaire
+     *
+     * @return \UserBundle\Entity\User
+     */
+    public function getProprietaire()
+    {
+        return $this->proprietaire;
+    }
+
+    /**
+     * Set valide
+     *
+     * @param boolean $valide
+     *
+     * @return Cours
+     */
+    public function setValide($valide)
+    {
+        $this->valide = $valide;
+
+        return $this;
+    }
+
+    /**
+     * Get valide
+     *
+     * @return boolean
+     */
+    public function getValide()
+    {
+        return $this->valide;
+    }
+}

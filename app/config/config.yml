@@ -10,6 +10,8 @@ imports:
 parameters:
     locale: en # en for english lang
     cours_directory: '%kernel.root_dir%/../web/uploads/cours'
+    actualites_directory: '%kernel.root_dir%/../web/uploads/actualites'
+    slides_directory: '%kernel.root_dir%/../web/uploads/slides'
 
 framework:
     #esi:             ~

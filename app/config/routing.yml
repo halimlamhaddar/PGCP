@@ -22,3 +22,10 @@ fos_user_change_password:
     prefix: /profile
 
 
+adesigns_calendar:
+    resource: "@ADesignsCalendarBundle/Resources/config/routing.xml"
+
+fos_js_routing:
+    resource: "@FOSJsRoutingBundle/Resources/config/routing/routing.xml"
+
+

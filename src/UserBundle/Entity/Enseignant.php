@@ -11,10 +11,16 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="agent_bureau")
+ * @ORM\Table(name="enseignant")
  */
 class Enseignant extends User
 {
+
+
+
+
+
+
     public function getType()
     {
         return "enseignant";
@@ -35,4 +41,6 @@ class Enseignant extends User
     {
         $this->id = $id;
     }
+
+
 }

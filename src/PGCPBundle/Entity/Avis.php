@@ -5,12 +5,12 @@ namespace PGCPBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Filiere
+ * Avis
  *
- * @ORM\Table(name="filiere")
- * @ORM\Entity(repositoryClass="PGCPBundle\Repository\FiliereRepository")
+ * @ORM\Table(name="avis")
+ * @ORM\Entity(repositoryClass="PGCPBundle\Repository\AvisRepository")
  */
-class Filiere
+class Avis
 {
     /**
      * @var int
@@ -44,7 +44,7 @@ class Filiere
      *
      * @param string $nom
      *
-     * @return Filiere
+     * @return Avis
      */
     public function setNom($nom)
     {

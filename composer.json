@@ -31,7 +31,9 @@
         "knplabs/knp-paginator-bundle": "^2.5",
         "friendsofsymfony/user-bundle": "~2.0",
         "phpunit/phpunit": "^5.7",
-        "fungio/google-calendar-bundle": "dev-master"
+        "fungio/google-calendar-bundle": "dev-master",
+        "adesigns/calendar-bundle": "^1.1",
+        "friendsofsymfony/jsrouting-bundle": "^1.6"
     },
     "require-dev": {
         "sensio/generator-bundle": "^3.0",

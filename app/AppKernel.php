@@ -20,6 +20,9 @@ class AppKernel extends Kernel
             new UserBundle\UserBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new Fungio\GoogleCalendarBundle\FungioGoogleCalendarBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle(),
+            new ADesigns\CalendarBundle\ADesignsCalendarBundle(),
+
 
         ];
 

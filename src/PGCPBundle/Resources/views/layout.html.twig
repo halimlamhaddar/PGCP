@@ -14,18 +14,20 @@
                 <a href="#" class="site_title"><i class="fa fa-laptop"></i> <span>ENSIAS</span></a>
             </div>
 
+
             <div class="clearfix"></div>
 
             <br />
 
             <!-- sidebar menu -->
-            <div id="sidebar-menu" class="main_menu_side hidden-print main_menu" style="background-color: #900f00">
+          <div id="sidebar-menu" class="main_menu_side hidden-print main_menu" style="background-color: #900f00">
                 <div class="menu_section">
-                    <h3>General</h3>
+                    <h3>Réseau et Communication</h3>
                     <ul class="nav side-menu" >
                         <li><a href="{{ path('pgcp_homepage') }}"><i class="fa fa-tachometer"></i> Accueil</a></li>
                         <li><a><i class="fa fa-users"></i> Utilisateurs <span class="fa fa-chevron-down"></span></a>
                             <ul class="nav child_menu">
+                                <li><a href="{{ path('pgcp_chefdefiliere') }}"><i class="fa fa-user-secret"></i> Chef de departement</a></li>
                                 <li><a href="{{ path('pgcp_chefdefiliere') }}"><i class="fa fa-user-secret"></i> Chef de filière</a></li>
                                 <li><a href="{{ path('pgcp_professeur') }}"><i class="fa fa-user-plus"></i> Enseigant</a></li>
                                 <li><a href="{{ path('pgcp_etudiant') }}"><i class="fa fa-user"></i> Etudiant</a></li>
